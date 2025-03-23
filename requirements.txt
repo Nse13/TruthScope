@@ -4,3 +4,4 @@ openai
 serpapi
 beautifulsoup4
 requests
+openai>=1.0.0
