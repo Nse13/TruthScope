@@ -35,6 +35,10 @@ def cerca_fonti_online(query, max_results=5):
         return link_fonti
     except Exception as e:
         return [f"Errore nella ricerca fonti: {e}"]
+from openai import OpenAI
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
 def valuta_veridicita_e_accuratezza(testo, fonti):
     prompt = f"""
 Testo da verificare:
@@ -50,7 +54,7 @@ Compito:
 
 Risultato:
 """
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": "Sei un esperto di fact-checking e analisi di accuratezza."},
@@ -59,6 +63,7 @@ Risultato:
         temperature=0.3
     )
     return response.choices[0].message.content.strip()
+
 
 
 
