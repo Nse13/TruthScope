@@ -9,7 +9,8 @@ SERPAPI_KEY = st.secrets["SERPAPI_KEY"]
 
 def estrai_testo_da_url(url):
     try:
-        headers = {'User-Agent': ' 'Mozilla/5.0'}
+        headers = {'User-Agent': 'Mozilla/5.0'}
+
         response = requests.get(url, headers=headers, timeout=10)
         soup = BeautifulSoup(response.text, 'html.parser')
         paragrafi = soup.find_all(['p'])
