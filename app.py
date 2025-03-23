@@ -1,10 +1,12 @@
 
 import streamlit as st
-import openai
+from openai import OpenAI
+
 import requests
 from bs4 import BeautifulSoup
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
 SERPAPI_KEY = st.secrets["SERPAPI_KEY"]
 
 def estrai_testo_da_url(url):
