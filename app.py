@@ -35,11 +35,9 @@ def cerca_fonti_online(query, max_results=5):
         return link_fonti
     except Exception as e:
         return [f"Errore nella ricerca fonti: {e}"]
-
 def valuta_veridicita_e_accuratezza(testo, fonti):
     prompt = f"""
 Testo da verificare:
-"""
 {testo}
 
 Fonti esterne trovate:
@@ -61,6 +59,8 @@ Risultato:
         temperature=0.3
     )
     return response.choices[0].message.content.strip()
+
+
 
 # INTERFACCIA STREAMLIT
 st.title("🔎 TruthScope – Analisi Veridicità Articoli e Post")
