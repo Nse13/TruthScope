@@ -57,7 +57,8 @@ Compito:
 Risultato:
 """
     response = client.chat.completions.create(
-        model="gpt-4",
+       model="gpt-3.5-turbo",
+
         messages=[
             {"role": "system", "content": "Sei un esperto di fact-checking e analisi di accuratezza."},
             {"role": "user", "content": prompt}
